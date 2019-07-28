@@ -1,0 +1,40 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.success {
+  color: green;
+}
+
+.failure {
+  color: red;
+}
+
+.upload-form {
+  display: inline-block;
+  padding: 4px;
+  border: 1px solid #dddddd;
+  margin-bottom: 10px;
+}
+
+.fade-out {
+    -webkit-animation: fadeOut 1s forwards;
+    animation: fadeOut 1s forwards;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+@-webkit-keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

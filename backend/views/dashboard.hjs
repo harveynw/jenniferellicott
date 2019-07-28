@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Dashboard</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Manage images:
+      {{#msg}}
+        {{#err}}
+          <small class='failure fade-out'>{{msg}}</small>
+        {{/err}}
+        {{^err}}
+          <small class='success fade-out'>{{msg}}</small>
+        {{/err}}
+      {{/msg}}
+    </h1>
+
+    <form class='upload-form' action='dashboard/image' method='post' enctype='multipart/form-data'>
+      <input type='text' name='name' placeholder='Photo name...'>
+      <input type='file' name='new_image' />
+      <button type='submit'>Add</button>
+    </form>
+
+    <table style="width: 800px; text-align: left">
+      <tr>
+        <th>Name</th>
+        <th>File Name</th>
+        <th>View</th>
+        <th>Order</th>
+        <th>Delete</th>
+      </tr>
+      {{#images}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{filename}}</td>
+          <td><a href='./images/{{filename}}'>Open</a></td>
+          <td>
+            <form action='dashboard/mutate' method='post'>
+              <input type='hidden' name='name' value='{{name}}'>
+              <input type='hidden' name='operation' value='shift'>
+              <button type='submit'>⬆️</button>
+            </form>
+          </td>
+          <td>
+            <form action='dashboard/mutate' method='post'>
+              <input type='hidden' name='name' value='{{name}}'>
+              <input type='hidden' name='operation' value='delete'>
+              <button type='submit'>🗑</button>
+            </form>
+          </td>
+        </tr>
+      {{/images}}
+    </table>
+    <br>
+    <a href="dashboard/logout">Logout</a>
+  </body>
+</html>

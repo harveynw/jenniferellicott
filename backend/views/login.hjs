@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Please login</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Details:
+       {{#err}}
+       <small class="failure">{{err}}</small>
+       {{/err}}
+     </h1>
+    <form method="post">
+      <input type="text" name="keyword" placeholder="keyword">
+      <input type="password" name="password" placeholder="password">
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>
